@@ -1,0 +1,5 @@
+.slick-prev,
+.slick-next {
+  width: 40px; /* Atur ukuran tombol */
+  height: 40px; /* Atur ukuran tombol */
+}
