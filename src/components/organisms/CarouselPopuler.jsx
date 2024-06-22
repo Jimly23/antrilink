@@ -9,7 +9,7 @@ const CarouselPopuler = () => {
         return (
             <div
             className={className}
-            style={{ ...style, display: "block", background: "", position: 'absolute', right:"25px", width: "25px",}}
+            style={{ ...style, display: "block", background: "", borderRadius: '50%', position: 'absolute', right:"-5px", width: "25px"}}
             onClick={onClick}
             />
         );

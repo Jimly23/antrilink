@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const DetailAntrian = () => {
   return (
-    <div className='min-h-[100vh] bg-slate-300'>
-        <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-slate-700 py-5 font-medium text-slate-300">
+    <div className='min-h-[100vh] bg-dominan'>
+        <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
             <div className="back flex items-center px-5">
                 <Link to={'/detail-merchant'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
                 <h2 className='text-lg'>Merchant</h2>
@@ -15,7 +15,7 @@ const DetailAntrian = () => {
 
         {/* Detail Antrian */}
         <div className="mt-[68px] p-5">
-            <div className="rounded-lg bg-slate-100">
+            <div className="rounded-lg bg-bg">
                 <div className="header font-medium p-3">
                     <h2 className='text-lg'>Mie Gacoan Purwokerto</h2>
                     <div className="waktu flex items-center mt-2">
@@ -37,12 +37,12 @@ const DetailAntrian = () => {
                     </div>
 
                     <div className="jumlah-antrian font-medium flex items-center mb-3">
-                        <h5 className='me-2'>Jumlah Antrian <span className='px-2 text-[14px] py-[2px] bg-orange-400 text-white rounded'>59</span></h5>
-                        <h5>Batal <span className='px-2 text-[14px] py-[2px] bg-orange-400 text-white rounded'>2</span></h5>
+                        <h5 className='me-2'>Jumlah Antrian <span className='px-2 text-[14px] py-[2px] text-black rounded border'>59</span></h5>
+                        <h5>Batal <span className='px-2 text-[14px] py-[2px] text-black rounded border'>2</span></h5>
                     </div>
 
                     {/* button */}
-                    <button className='py-2 rounded-lg font-medium bg-slate-400 w-full mb-3'>Antri</button>
+                    <button className='py-2 rounded-lg font-medium bg-aksen text-white w-full mb-3'>Antri</button>
 
                     {/* pengumuman */}
                     <div className="box-perhatian">

@@ -6,8 +6,8 @@ import CardMerchant from '../components/organisms/CardMerchant'
 
 const Pengaturan = () => {
   return (
-    <div className='min-h-[100vh] bg-slate-300'>
-      <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-slate-700 py-5 font-medium text-slate-300">
+    <div className='min-h-[100vh] bg-dominan'>
+      <div className="header z-10 fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
         <div className="back flex items-center px-5">
           <Link to={'/profile'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
           <h2 className='text-lg'>Pengaturan</h2>
@@ -33,7 +33,7 @@ const Pengaturan = () => {
                 <h5 className='mb-1 ms-3'>Password</h5>
                 <input type="password" className='px-5 py-2 rounded-full w-full' placeholder='*******' />
             </div>
-            <button className='px-3 py-1 bg-orange-300 rounded-md absolute right-5'>Simpan</button>
+            <button className='px-3 py-1 bg-aksen rounded-md absolute right-5 text-white'>Simpan</button>
         </form>
       </div>
     </div>
