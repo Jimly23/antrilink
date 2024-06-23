@@ -4,22 +4,24 @@ import {HiOutlineSearch} from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import CarouselPopuler from '../components/organisms/CarouselPopuler'
 import { FaPalette } from 'react-icons/fa6'
-import { bank, cutlery, goverment, health, more, promo1, promo2, service } from '../assets'
+import { bank, cutlery, goverment, health, logo, more, promo1, promo2, service } from '../assets'
 
 const Home = () => {
   const [moreCategory, setMoreCategory] = useState(false)
 
   return (
-    <div className='min-h-[200vh] bg-dominan font-medium'>
+    <div className='pb-[200px] bg-dominan font-medium'>
       {/* Header */}
-      <div className="header grid grid-cols-4 py-7 px-5 mb-5 gap-1">
+      <div className="header grid grid-cols-4 py-7 px-5 mb-5 gap-1 bg-aksen">
         <div className="search-box bg-white col-span-3 px-5 py-2 rounded-full flex items-center justify-between">
           <Link to={'/search'}>
               <input type="text" placeholder='Mau antri dimana' className='outline-none border-none bg-transparent font-medium' />
           </Link>
           <HiOutlineSearch className='font-bold text-slate-500' size={20}/>
         </div>
-        <div className="text-xl mx-auto my-auto">AntriLink</div>
+        <div className="text-xl mx-auto my-auto text-white">
+          <img src={logo} className='w-[50px]' />
+        </div>
       </div>
 
       {/* iklan */}
@@ -28,7 +30,7 @@ const Home = () => {
       </div>
 
       {/* kategori */}
-      <div className="kategori p-5">
+      <div className="kategori p-5 font-normal">
         <h4>Pilih Kategori</h4>
         <div className="grid grid-cols-3 gap-2 mt-3">
           <Link to={'/search'}>

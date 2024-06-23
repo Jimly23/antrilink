@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaChevronLeft, FaClock, FaMap } from 'react-icons/fa'
 import { FaClockRotateLeft, FaLocationDot, FaRegClock } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
+import AntriSuccessPopup from '../components/templates/AntriSuccessPopup'
 
 const DetailAntrian = () => {
+
+  const [isAntriSuccess, setIsAntriSuccess] = useState(false);
+  const handleButtonBack = (data) => {
+    setIsAntriSuccess(data)
+  }
+
   return (
     <div className='min-h-[100vh] bg-dominan'>
         <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
@@ -42,7 +49,7 @@ const DetailAntrian = () => {
                     </div>
 
                     {/* button */}
-                    <button className='py-2 rounded-lg font-medium bg-aksen text-white w-full mb-3'>Antri</button>
+                    <button onClick={() => setIsAntriSuccess(true)} className='py-2 rounded-lg font-medium bg-aksen text-white w-full mb-3'>Antri</button>
 
                     {/* pengumuman */}
                     <div className="box-perhatian">
@@ -54,6 +61,13 @@ const DetailAntrian = () => {
                 </div>
             </div>
         </div>
+
+        {/* Popup antri success */}
+        {isAntriSuccess && 
+            <div className="absolute top-0 left-0 right-0 bottom-0 bg-blackRgba flex justify-center items-center">
+                <AntriSuccessPopup isBack={isAntriSuccess} sendIsBack={handleButtonBack}/>
+            </div>
+        }
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import CardMerchant from '../components/organisms/CardMerchant'
-import { bank, cutlery, goverment, health, service } from '../assets'
+import { bank, cutlery, goverment, health, printing, service } from '../assets'
 
 
 const MoreKategori = () => {
@@ -46,6 +46,12 @@ const MoreKategori = () => {
             <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
               <img src={service} className='w-10' />
               <h5 className='text-[14px]'>Service Center</h5>
+            </div>
+          </Link>
+          <Link to={'/search'}>
+            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+              <img src={printing} className='w-10' />
+              <h5 className='text-[14px]'>Printing</h5>
             </div>
           </Link>
         </div>

@@ -12,7 +12,9 @@ import iklan2 from './iklan2.jpeg'
 import iklan3 from './iklan3.jpeg'
 import promo1 from './promo1.png'
 import promo2 from './promo2.jpg'
+import printing from './printing.png'
+import logo from './logo.png'
 
 export {
-    cutlery,bank,goverment,service,health,more,gacoan,tempatGacoan,profile,iklan1,iklan2,iklan3,promo1,promo2
+    cutlery,bank,goverment,service,health,more,gacoan,tempatGacoan,profile,iklan1,iklan2,iklan3,promo1,promo2,printing,logo
 };
