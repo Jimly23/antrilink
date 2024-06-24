@@ -47,7 +47,7 @@ const DetailMerchant = () => {
             {/* add favorit */}
             <div className="add-favorit flex justify-end items-center cursor-pointer mb-5" onClick={() => setIsFavorit(prev => !prev)}>
                 <h6 className='text-[14px] me-2'>Tambah ke favorit</h6>
-                {isFavorit? <FaHeart className='text-red-500'/>:<FaRegHeart className='me-2 text-red-500'/>}
+                {isFavorit? <FaHeart className='me-2 text-red-500'/>:<FaRegHeart className='me-2 text-red-500'/>}
             </div>
 
             {/* box antri */}
