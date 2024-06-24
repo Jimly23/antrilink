@@ -10,7 +10,7 @@ const MoreKategori = () => {
     <div className='min-h-[100vh] bg-dominan'>
       <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
         <div className="back flex items-center px-5">
-          <Link to={'/'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
+          <Link to={'/dashbaord'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
           <h2 className='text-lg'>Pilih Kategori</h2>
         </div>
       </div>

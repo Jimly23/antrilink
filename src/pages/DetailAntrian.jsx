@@ -16,7 +16,7 @@ const DetailAntrian = () => {
         <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
             <div className="back flex items-center px-5">
                 <Link to={'/detail-merchant'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
-                <h2 className='text-lg'>Merchant</h2>
+                <h2 className='text-lg'>Detail Antrian</h2>
             </div>
         </div>
 
@@ -35,17 +35,17 @@ const DetailAntrian = () => {
                     <div className="box-informasi-antri grid grid-cols-2 font-medium py-10">
                         <div className="terakhir text-center border-r">
                             <h2>Terakhir Dilayani</h2>
-                            <h3 className='text-[30px]'>A045</h3>
+                            <h3 className='text-[30px]'>A044</h3>
                         </div>
                         <div className="menunggu text-center">
                             <h2>Menunggu</h2>
-                            <h3 className='text-[30px]'>12</h3>
+                            <h3 className='text-[30px]'>15</h3>
                         </div>
                     </div>
 
                     <div className="jumlah-antrian font-medium flex items-center mb-3">
                         <h5 className='me-2'>Jumlah Antrian <span className='px-2 text-[14px] py-[2px] text-black rounded border'>59</span></h5>
-                        <h5>Batal <span className='px-2 text-[14px] py-[2px] text-black rounded border'>2</span></h5>
+                        <h5>Batal <span className='px-2 text-[14px] py-[2px] text-black rounded border'>0</span></h5>
                     </div>
 
                     {/* button */}

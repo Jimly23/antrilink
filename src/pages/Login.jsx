@@ -61,7 +61,7 @@ const Login = () => {
                     </div>
                     <button type='submit' className='py-3 w-full bg-aksen text-white rounded-lg'>Login</button>
                 </form>
-                <h6 className='font-medium text-[14px]'>Belum punya akun? <Link to={'/register'}><span className='text-aksen underline'>Daftar</span></Link></h6>
+                {/* <h6 className='font-medium text-[14px]'>Belum punya akun? <Link to={'/register'}><span className='text-aksen underline'>Daftar</span></Link></h6> */}
             </div>
         </div>
     </div>

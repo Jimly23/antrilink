@@ -9,7 +9,7 @@ const Antrian = () => {
     <div className='min-h-[100vh] bg-dominan'>
       <div className="header fixed top-0 left-0 right-0 sm:w-[500px] mx-auto bg-aksen pt-5 font-medium text-white">
         <div className="back flex items-center px-5">
-          <Link to={'/'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
+          <Link to={'/dashboard'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
           <h2 className='text-lg'>Antrian Saya</h2>
         </div>
         <div className="riwayat grid grid-cols-2 mt-6">

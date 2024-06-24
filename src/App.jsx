@@ -45,7 +45,7 @@ const Layout = () => {
       </Routes>
       {shouldShowBottomMenu && (
         <div className="bottom-menu fixed bottom-0 w-full z-[2] max-w-[500px] py-5 flex justify-around bg-dominan text-slate-300 border-t">
-          <Link to={'/'}>
+          <Link to={'/dashboard'}>
             <FaHome
               size={25}
               onClick={() => handleMenuActive(1)}

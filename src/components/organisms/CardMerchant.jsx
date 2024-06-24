@@ -13,10 +13,10 @@ const CardMerchant = ({style}) => {
             </div>
             <div className="desc col-span-6 pe-4">
                 <h2 className='font-medium text-md 2s:text-lg 3s:text-xl flex items-center'>Gacoan Purwokerto <FaCheckCircle className='ms-2 text-blue-500'/></h2>
-                <p className='text-[11px] 3s:text-[12px]'>Lorem, ipsum dolor sit amet consectetur hayak sanju</p>
+                <p className='text-[11px] 3s:text-[12px]'>Purwokerto Timur, Banyumas</p>
             </div>
         </div>
-        <div className="bg-slate-100 text-slate-600 h-5 w-full mt-3 rounded-md px-3 text-[12px]">Lorem ipsum dolor sit amet.</div>
+        <div className="bg-slate-100 text-slate-600 h-5 w-full mt-3 rounded-md px-3 text-[12px]">Restoran - Mie</div>
       </div>
     </Link>
   )
