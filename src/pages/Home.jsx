@@ -73,7 +73,7 @@ const Home = () => {
       </div>
 
       {/* Promo */}
-      <div className="populer p-5">
+      {/* <div className="populer p-5">
         <h4>Promo</h4>
         <div className="mt-3 gap-2">
           <div className="item w-full h-[250px] bg-slate-700 rounded-xl overflow-hidden mb-3">
@@ -83,7 +83,7 @@ const Home = () => {
             <img src={promo2} className='w-full h-full object-cover' />
           </div>
         </div>
-      </div>
+      </div> */}
  
       {/* Populer */}
       <div className="populer">
