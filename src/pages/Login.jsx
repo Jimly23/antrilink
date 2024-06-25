@@ -53,11 +53,11 @@ const Login = () => {
                 <form onSubmit={handleSubmit} className='font-medium text-slate-700 mb-2'>
                     <div className="username flex items-center border py-3 px-4 rounded-lg mb-3">
                         <FaRegEnvelope className='me-3'/>
-                        <input type="text" onChange={handleChange} name='email' placeholder='Email' className='border-none w-full outline-none' />
+                        <input type="text" onChange={handleChange} name='email' placeholder='admin@gmail.com' className='border-none w-full outline-none' />
                     </div>
                     <div className="username flex items-center border py-3 px-4 rounded-lg mb-3">
                         <FaLock className='me-3' />
-                        <input type="password" onChange={handleChange} name='password' placeholder='Password' className='border-none w-full outline-none' />
+                        <input type="password" onChange={handleChange} name='password' placeholder='admin123' className='border-none w-full outline-none' />
                     </div>
                     <button type='submit' className='py-3 w-full bg-aksen text-white rounded-lg'>Login</button>
                 </form>
