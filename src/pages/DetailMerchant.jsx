@@ -1,42 +1,64 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaChevronLeft, FaClock, FaHeart, FaMap, FaRegHeart } from 'react-icons/fa'
 import { FaClockRotateLeft, FaHeartCircleCheck, FaHeartPulse, FaLocationDot, FaRegClock } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { gacoan, tempatGacoan } from '../assets'
 import GoogleMaps from '../components/organisms/GoogleMaps'
+import { addAntrianFavorit, getLayananByName } from '../api/api'
 
 const DetailMerchant = () => {
-
+  const navigate = useNavigate();
   const [isFavorit, setIsFavorit] = useState(false)
-  const [isDetailAntri, setIsDetailAntri] = useState(false)
+  const [dataLayanan, setDataLayanan] = useState(null)
+  const location = useLocation();
+  const {logo, tempatImg, nama, alamat, desc, maps} = location.state || {}
+
+  const handleClick = () => {
+    navigate('/detail-antrian', {state: {nama}})
+  }
+
+  useEffect(()=>{
+    layananByName(nama)
+  }, [dataLayanan])
+
+  const layananByName = (nama) => {
+    const result = getLayananByName(nama)
+    setDataLayanan(result)
+  }
+
+  const handleAddFavorit = () => {
+    setIsFavorit(!isFavorit)
+    const result = getLayananByName(nama)
+    addAntrianFavorit(result)
+  }
 
   return (
     <div className='min-h-[100vh] bg-dominan relative'>
         <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white z-20">
             <div className="back flex items-center px-5">
-                <Link to={'/dashboard'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
+                <Link to={'/search'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
                 <h2 className='text-lg'>Layanan</h2>
             </div>
         </div>
 
         {/* Merchant Banner */}
         <div className="relative merchant-banner mt-[68px] h-[220px] overflow-hidden">
-            <img src={tempatGacoan} className='w-full h-full object-cover'/>
+            <img src={tempatImg || dataLayanan && dataLayanan.tempatImg} className='w-full h-full object-cover'/>
         </div>
 
         {/* Merchant Main */}
         <div className="relative main bg-dominan min-h-[90vh] rounded-t-[25px] mt-[-20px] p-5 z-10">
             <div className="profile-merchant flex">
                 <div className="flex-none box-image w-[80px] h-[80px] bg-white rounded-lg overflow-hidden">
-                    <img src={gacoan} className='w-full h-full object-cover' />
+                    <img src={logo || dataLayanan && dataLayanan.logo} className='w-full h-full object-cover' />
                 </div>
                 <div className="grow desc ms-3">
-                    <h3 className='font-medium text-md'>Mie Gacoan Purwokerto</h3>
-                    <p className='text-[12px]'>Restoran - Mie</p>
+                    <h3 className='font-medium text-md'>{nama || dataLayanan && dataLayanan.nama}</h3>
+                    <p className='text-[12px]'>{desc || dataLayanan && dataLayanan.deskripsi}</p>
                 </div>
             </div>
             <div className="detail-desc mt-2 flex items-center gap-2 font-medium mb-3 border-b pb-2">
-                <div className="lokasi flex items-center"><FaLocationDot /> <p className='ms-1 text-[11px]'>Arcawinangun, Purwokerto</p></div>
+                <div className="lokasi flex items-center"><FaLocationDot /> <p className='ms-1 text-[11px]'>{alamat || dataLayanan && dataLayanan.alamat}</p></div>
                 <div className="waktu flex items-center">
                     <FaRegClock /> 
                     <p className='text-[10px] ms-1'>07:15 - 22:00</p>
@@ -45,7 +67,7 @@ const DetailMerchant = () => {
             </div>
 
             {/* add favorit */}
-            <div className="add-favorit flex justify-end items-center cursor-pointer mb-5" onClick={() => setIsFavorit(prev => !prev)}>
+            <div className="add-favorit flex justify-end items-center cursor-pointer mb-5" onClick={handleAddFavorit}>
                 <h6 className='text-[14px] me-2'>Tambah ke favorit</h6>
                 {isFavorit? <FaHeart className='me-2 text-red-500'/>:<FaRegHeart className='me-2 text-red-500'/>}
             </div>
@@ -58,16 +80,16 @@ const DetailMerchant = () => {
                     <p className='text-[12px]'>Dari 59</p>
                 </div>
                 <div className='flex items-center justify-center bg-aksen'>
-                    <Link to={'/detail-antrian'}>
-                        <button className='px-4 py-2 bg-white border border-aksen rounded-lg text-aksen'>Antri Sekarang</button>
-                    </Link>
+                    {/* <Link to={'/detail-antrian'}> */}
+                        <button onClick={handleClick} className='px-4 py-2 bg-white border border-aksen rounded-lg text-aksen'>Antri Sekarang</button>
+                    {/* </Link> */}
                 </div>
             </div>
 
             {/* Google Maps */}
             <div className="maps font-medium">
                 <h6 className='mb-2 text-[14px]'>Maps</h6>
-                <GoogleMaps />
+                <GoogleMaps linkMaps={maps || dataLayanan && dataLayanan.maps} />
             </div>
         </div>
     </div>

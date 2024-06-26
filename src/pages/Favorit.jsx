@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import CardMerchant from '../components/organisms/CardMerchant'
+import { getAntrianFavorit } from '../api/api'
 
 
 const Favorit = () => {
+  const [favoritAntrian, setFavoritAntrian] = useState([])
+
+  useEffect(()=>{
+    const result = getAntrianFavorit()
+    if(result){
+      setFavoritAntrian(result)
+    }
+  }, [])
   return (
     <div className='min-h-[100vh] bg-dominan'>
       <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
@@ -16,7 +25,11 @@ const Favorit = () => {
 
       {/* List favorit */}
       <div className="list p-5 mt-[68px]">
-        <CardMerchant />
+        {favoritAntrian.map((item, index) => (
+          <div key={index}>
+            <CardMerchant logo={item.logo} tempatImg={item.tempatImg} nama={item.nama} alamat={item.alamat} desc={item.deskripsi} maps={item.maps}/>
+          </div>
+        ))}
       </div>
     </div>
   )

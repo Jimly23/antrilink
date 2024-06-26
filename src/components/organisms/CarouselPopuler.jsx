@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import CardMerchant from "./CardMerchant";
+import { layanan } from "../../api/api";
 
 const CarouselPopuler = () => {
 
@@ -37,15 +38,11 @@ const CarouselPopuler = () => {
   };
   return (
     <Slider {...settings}>
-      <div className="px-5 flex justify-center items-center">
-        <CardMerchant style={'mb-0'}/>
-      </div>
-      <div className="px-5 flex items-center">
-        <CardMerchant  style={'mb-0'}/>
-      </div>
-      <div className="px-5 flex items-center">
-        <CardMerchant  style={'mb-0'}/>
-      </div>
+      {layanan.map((item, index) => (
+        <div key={index} className="px-5 flex justify-center items-center">
+          <CardMerchant style={'mb-0'} logo={item.logo} tempatImg={item.tempatImg} nama={item.nama} alamat={item.alamat} desc={item.deskripsi} maps={item.maps}/>
+        </div>
+      ))}
     </Slider>
   );
 };

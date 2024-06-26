@@ -12,7 +12,7 @@ const AntriSuccessPopup = ({isBack, sendIsBack}) => {
         <button onClick={() => sendIsBack(false)} className='back w-6 h-6 text-[14px] font-medium absolute right-3 top-3 rounded-full bg-slate-400 flex items-center justify-center'>X</button>
         <div className="no-antrian py-[50px]">
             <h3 className='text-center text-lg font-medium'>Nomor Antrian Anda</h3>
-            <h2 className='text-center text-2xl font-bold'>A045</h2>
+            <h2 className='text-center text-2xl font-bold'>A-01</h2>
         </div>
         <Link to={'/antrian'} className='w-[90%]'>
             <button className='bg-aksen py-2 rounded-lg w-full font-medium text-white'>Detail antrian</button>

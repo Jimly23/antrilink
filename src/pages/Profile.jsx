@@ -8,15 +8,15 @@ import { profile } from '../assets'
 const Profile = () => {
   return (
     <div className='h-[100vh] bg-dominan'>
-      <div className="header bg-aksen py-5 font-medium text-white">
-        <div className="back flex items-center px-5">
+      <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
+        <div className="flex items-center px-5">
           <Link to={'/dashboard'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
           <h2 className='text-lg'>Profile</h2>
         </div>
       </div>
 
       {/* foto profile */}
-      <div className="profile-pic py-10">
+      <div className="profile-pic pt-[150px]">
         <div className="box-img w-[130px] h-[130px] bg-aksen rounded-full mx-auto overflow-hidden border-4 border-white">
           <img src={profile} className='w-full h-full object-cover' />
         </div>
@@ -29,10 +29,6 @@ const Profile = () => {
         <div className="edit-profile mb-5">
           <h2 className='text-lg'>Edit Profil</h2>
           <div className="box-edit">
-            {/* <div className="username flex items-center my-4">
-              <FaRegEnvelope className='me-2'/>
-              <h3>Email</h3>
-            </div> */}
             <Link to={'/pengaturan'}>
               <div className="username flex items-center my-4">
                 <FaGear className='me-2'/>
@@ -47,10 +43,12 @@ const Profile = () => {
               <FaRegCircleQuestion className='me-2'/>
               <h3>Bantuan</h3>
             </div>
-            <div className="username flex items-center my-4">
-              <FaRightFromBracket className='me-2'/>
-              <h3>Logout</h3>
-            </div>
+            <Link to={'/'}>
+              <div className="username flex items-center my-4 text-red-600">
+                <FaRightFromBracket className='me-2'/>
+                <h3>Logout</h3>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

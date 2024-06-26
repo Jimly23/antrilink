@@ -16,6 +16,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import axios from 'axios'
 import { dataMock } from './api/api';
+import CekAntrian from './pages/CekAntrian';
 
 const Layout = () => {
   const location = useLocation();
@@ -26,7 +27,7 @@ const Layout = () => {
     setMenuActiveId(menuId);
   };
 
-  const shouldShowBottomMenu = !['/register', '/'].includes(location.pathname);
+  const shouldShowBottomMenu = !['/register', '/', '/antrian', '/detail-antrian', '/check-antrian', '/profile', '/favorit', '/search', '/more-kategori'].includes(location.pathname);
 
   return (
     <div className='relative max-w-[500px] mx-auto overflow-x-hidden'>
@@ -41,6 +42,7 @@ const Layout = () => {
         <Route path='/pengaturan' element={<Pengaturan />} />
         <Route path='/detail-merchant' element={<DetailMerchant />} />
         <Route path='/detail-antrian' element={<DetailAntrian />} />
+        <Route path='/check-antrian' element={<CekAntrian />} />
         <Route path='/more-kategori' element={<MoreKategori />} />
       </Routes>
       {shouldShowBottomMenu && (
@@ -54,22 +56,16 @@ const Layout = () => {
           </Link>
           <Link to={'/antrian'}>
             <FaTicketAlt
-              onClick={() => handleMenuActive(2)}
-              className={`${menuActiveId === 2 ? 'text-aksen' : ''}`}
               size={25}
             />
           </Link>
           <Link to={'/favorit'}>
             <FaHeart
-              onClick={() => handleMenuActive(3)}
-              className={`${menuActiveId === 3 ? 'text-aksen' : ''}`}
               size={25}
             />
           </Link>
           <Link to={'/profile'}>
             <FaUser
-              onClick={() => handleMenuActive(4)}
-              className={`${menuActiveId === 4 ? 'text-aksen' : ''}`}
               size={25}
             />
           </Link>

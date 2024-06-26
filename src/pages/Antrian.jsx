@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
 import CardMerchant from '../components/organisms/CardMerchant'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllAntrian } from '../api/api';
+import CardAntrian from '../components/organisms/CardAntrian';
 
 const Antrian = () => {
   const [history, setHistory] = useState(true);
+  const navigate = useNavigate()
+  const [myAntrian, setMyAntrian] = useState([])
+
+  useEffect(()=>{
+    const result = getAllAntrian()
+    if(result){
+      setMyAntrian(result)
+    }
+  }, [])
+
+  const handleCheckAntrian = (noAntri,logo,nama,giliran) => {
+    let jumlahAntrian = myAntrian.length
+    navigate('/check-antrian', {state: {noAntri, logo, nama, giliran, jumlahAntrian}})
+  }
+
+  console.log(myAntrian);
+
   return (
     <div className='min-h-[100vh] bg-dominan'>
       <div className="header fixed top-0 left-0 right-0 sm:w-[500px] mx-auto bg-aksen pt-5 font-medium text-white">
@@ -20,17 +39,16 @@ const Antrian = () => {
 
       {/* List antrian */}
       <div className="list p-5 mt-[120px]">
-        {history && 
-          <>
-            <CardMerchant />
-          </>
+        {history &&
+          myAntrian.map((item, index) => (
+            <div onClick={() => handleCheckAntrian(item.noAntri,item.logoLayanan,item.namaLayanan,item.estimasiGiliran)} key={index}>
+              <CardAntrian logo={item.logoLayanan} nama={item.namaLayanan} noAntri={item.noAntri}/>
+            </div>
+          ))
         }
         {!history && 
           <>
-            <CardMerchant />
-            <CardMerchant />
-            <CardMerchant />
-            <CardMerchant />
+            
           </>
         }
       </div>

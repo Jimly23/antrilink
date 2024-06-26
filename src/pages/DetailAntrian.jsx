@@ -1,21 +1,47 @@
 import React, { useState } from 'react'
 import { FaChevronLeft, FaClock, FaMap } from 'react-icons/fa'
 import { FaClockRotateLeft, FaLocationDot, FaRegClock } from 'react-icons/fa6'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AntriSuccessPopup from '../components/templates/AntriSuccessPopup'
+import { addAntrian, getLayananByName } from '../api/api'
 
 const DetailAntrian = () => {
-
+  const location = useLocation()
+  const navigate = useNavigate()
   const [isAntriSuccess, setIsAntriSuccess] = useState(false);
+  const [noAntri, setNoAntri] = useState(1)
+  const {nama} = location.state || null
+
+  let sekarang = new Date()
+  const handleAddAntrian = () => {
+      const result = getLayananByName(nama)
+      const dataAntrian = {
+        noAntri: `A-0${noAntri}`,
+        namaLayanan: result.nama,
+        logoLayanan: result.logo,
+        estimasiGiliran: `${sekarang.getHours()}:${sekarang.getMinutes()+10}`,
+        kategori: result.kategori
+      }
+      addAntrian(dataAntrian)
+      setIsAntriSuccess(true)
+      setNoAntri(noAntri+1)
+  }
+
   const handleButtonBack = (data) => {
     setIsAntriSuccess(data)
   }
+
+  const handleButtonBAck = () => {
+    navigate('/detail-merchant', {state:{nama}})
+  }
+
+
 
   return (
     <div className='min-h-[100vh] bg-dominan'>
         <div className="header fixed top-0 left-0 right-0 w-[500px] mx-auto bg-aksen py-5 font-medium text-white">
             <div className="back flex items-center px-5">
-                <Link to={'/detail-merchant'} className='my-auto text-white me-5'><FaChevronLeft size={25}/></Link>
+                <FaChevronLeft size={25} className='my-auto text-white me-5' onClick={handleButtonBAck}/>
                 <h2 className='text-lg'>Detail Antrian</h2>
             </div>
         </div>
@@ -24,7 +50,7 @@ const DetailAntrian = () => {
         <div className="mt-[68px] p-5">
             <div className="rounded-lg bg-bg">
                 <div className="header font-medium p-3">
-                    <h2 className='text-lg'>Mie Gacoan Purwokerto</h2>
+                    <h2 className='text-lg'>{nama}</h2>
                     <div className="waktu flex items-center mt-2">
                         <FaRegClock /> 
                         <p className='text-[12px] ms-1'>07:15 - 22:00</p>
@@ -35,21 +61,21 @@ const DetailAntrian = () => {
                     <div className="box-informasi-antri grid grid-cols-2 font-medium py-10">
                         <div className="terakhir text-center border-r">
                             <h2>Terakhir Dilayani</h2>
-                            <h3 className='text-[30px]'>A044</h3>
+                            <h3 className='text-[30px]'>A-00</h3>
                         </div>
                         <div className="menunggu text-center">
                             <h2>Menunggu</h2>
-                            <h3 className='text-[30px]'>15</h3>
+                            <h3 className='text-[30px]'>0</h3>
                         </div>
                     </div>
 
                     <div className="jumlah-antrian font-medium flex items-center mb-3">
-                        <h5 className='me-2'>Jumlah Antrian <span className='px-2 text-[14px] py-[2px] text-black rounded border'>59</span></h5>
+                        <h5 className='me-2'>Jumlah Antrian <span className='px-2 text-[14px] py-[2px] text-black rounded border'>0</span></h5>
                         <h5>Batal <span className='px-2 text-[14px] py-[2px] text-black rounded border'>0</span></h5>
                     </div>
 
                     {/* button */}
-                    <button onClick={() => setIsAntriSuccess(true)} className='py-2 rounded-lg font-medium bg-aksen text-white w-full mb-3'>Antri</button>
+                    <button onClick={handleAddAntrian} className='py-2 rounded-lg font-medium bg-aksen text-white w-full mb-3'>Antri</button>
 
                     {/* pengumuman */}
                     <div className="box-perhatian">

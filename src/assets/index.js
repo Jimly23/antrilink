@@ -14,7 +14,17 @@ import promo1 from './promo1.png'
 import promo2 from './promo2.jpg'
 import printing from './printing.png'
 import logo from './logo.png'
+import logoBca from './img-bca.png'
+import logoEls from './img-els.jpeg'
+import logoMargono from './img-margono.jpeg'
+import logoPajak from './img-pajak.jpeg'
+import tempatEls from './tempat-els.jpeg'
+import tempatPajak from './tempat-pajak.jpeg'
+import tempatBca from './tempat-bca.jpg'
+import tempatMargono from './tempat-margono.jpg'
+import tempatPrinting from './tempat-printing.png'
 
 export {
-    cutlery,bank,goverment,service,health,more,gacoan,tempatGacoan,profile,iklan1,iklan2,iklan3,promo1,promo2,printing,logo
+    cutlery,bank,goverment,service,health,more,gacoan,tempatGacoan,profile,iklan1,iklan2,iklan3,promo1,promo2,printing,logo,
+    logoBca,logoEls,logoMargono,logoPajak,tempatEls,tempatPajak,tempatBca,tempatMargono,tempatPrinting
 };

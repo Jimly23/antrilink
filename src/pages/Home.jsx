@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import CarouselBanner from '../components/organisms/CarouselBanner'
 import {HiOutlineSearch} from 'react-icons/hi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CarouselPopuler from '../components/organisms/CarouselPopuler'
 import { FaPalette } from 'react-icons/fa6'
 import { bank, cutlery, goverment, health, logo, more, promo1, promo2, service } from '../assets'
+import { layanan } from '../api/api'
 
 const Home = () => {
-  const [moreCategory, setMoreCategory] = useState(false)
+  const navigate = useNavigate();
+  const handleClick = (param) => {
+    const hasil = layanan.find(l => l.kategori === param)
+    navigate('/search', {state: hasil})
+  }
 
   return (
     <div className='pb-[200px] bg-dominan font-medium'>
@@ -33,36 +38,26 @@ const Home = () => {
       <div className="kategori p-5 font-normal">
         <h4>Pilih Kategori</h4>
         <div className="grid grid-cols-3 gap-2 mt-3">
-          <Link to={'/search'}>
-            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
-              <img src={cutlery} className='w-10' />
-              <h5 className='text-[14px]'>Makanan</h5>
-            </div>
-          </Link>
-          <Link to={'/search'}>
-            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
-              <img src={bank} className='w-10' />
-              <h5 className='text-[14px]'>Bank</h5>
-            </div>
-          </Link>
-          <Link to={'/search'}>
-            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
-              <img src={health} className='w-10' />
-              <h5 className='text-[14px]'>Kesehatan</h5>
-            </div>
-          </Link>
-          <Link to={'/search'}>
-            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
-              <img src={goverment} className='w-10' />
-              <h5 className='text-[14px]'>Pemerintahan</h5>
-            </div>
-          </Link>
-          <Link to={'/search'}>
-            <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
-              <img src={service} className='w-10' />
-              <h5 className='text-[14px]'>Service Center</h5>
-            </div>
-          </Link>
+          <div onClick={() => handleClick('makanan')} className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+            <img src={cutlery} className='w-10' />
+            <h5 className='text-[14px]'>Makanan</h5>
+          </div>
+          <div onClick={() => handleClick('bank')} className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+            <img src={bank} className='w-10' />
+            <h5 className='text-[14px]'>Bank</h5>
+          </div>
+          <div onClick={() => handleClick('kesehatan')} className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+            <img src={health} className='w-10' />
+            <h5 className='text-[14px]'>Kesehatan</h5>
+          </div>
+          <div onClick={() => handleClick('pemerintahan')} className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+            <img src={goverment} className='w-10' />
+            <h5 className='text-[14px]'>Pemerintahan</h5>
+          </div>
+          <div onClick={() => handleClick('service center')} className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
+            <img src={service} className='w-10' />
+            <h5 className='text-[14px]'>Service Center</h5>
+          </div>
           <Link to={'/more-kategori'}>
             <div className="item w-full h-[90px] flex flex-col items-center justify-center border-2 bg-bg border-slate-200 rounded-xl">
                 <img src={more} className='w-10' />

@@ -1,7 +1,9 @@
 import React from 'react'
-import { FaChevronLeft } from 'react-icons/fa'
+import { FaChevronLeft, FaLock, FaPhoneAlt, FaRegEnvelope, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import CardMerchant from '../components/organisms/CardMerchant'
+import InputBox from '../components/atoms/InputBox'
+import Button from '../components/atoms/Button'
 
 
 const Pengaturan = () => {
@@ -17,23 +19,11 @@ const Pengaturan = () => {
       {/* List favorit */}
       <div className="form p-5 mt-[68px] font-medium">
         <form className='relative'>
-            <div className="username mb-2">
-                <h5 className='mb-1 ms-3'>Username</h5>
-                <input type="text" className='px-5 py-2 rounded-full w-full' placeholder='starling' />
-            </div>
-            <div className="email mb-2">
-                <h5 className='mb-1 ms-3'>Email</h5>
-                <input type="email" className='px-5 py-2 rounded-full w-full' placeholder='starling@gmail.com' />
-            </div>
-            <div className="telp mb-2">
-                <h5 className='mb-1 ms-3'>No. Telepon</h5>
-                <input type="text" className='px-5 py-2 rounded-full w-full' placeholder='+6282325655897' />
-            </div>
-            <div className="password mb-5">
-                <h5 className='mb-1 ms-3'>Password</h5>
-                <input type="password" className='px-5 py-2 rounded-full w-full' placeholder='*******' />
-            </div>
-            <button className='px-3 py-1 bg-aksen rounded-md absolute right-5 text-white'>Simpan</button>
+            <InputBox type={"text"} icon={<FaUser className="me-3" />} name={"text"} placeholder={"starbak keliling"} />
+            <InputBox type={"email"} icon={<FaRegEnvelope className="me-3" />} name={"email"} placeholder={"starling@gmail.com"} />
+            <InputBox type={"text"} icon={<FaPhoneAlt className="me-3" />} name={"telepon"} placeholder={"+6282329322565"} />
+            <InputBox type={"password"} icon={<FaLock className="me-3" />} name={"password"} placeholder={"**********"} />
+            <Button type={"submit"} size={""} bgColor={"aksen"} textColor={"white"} padding={"py-2 px-5"}>Simpan</Button>
         </form>
       </div>
     </div>
